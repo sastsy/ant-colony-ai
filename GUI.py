@@ -7,7 +7,7 @@ from tkinter import ttk
 import matplotlib.pyplot as plt
 import random
 
-from annealing import calculate_hamilton_cycle_cost, simulated_annealing_shortest_hamilton_cycle 
+from ant_colony import ant_colony_algorithm_with_2opt 
 
 
 class AddEdgeDialog(simpledialog.Dialog):
@@ -113,7 +113,7 @@ class GraphApp:
             self.treeview.insert("", tk.END, values=(start_vertex, end_vertex, edge_weight))
 
     def calculate_hamilton_cycle(self):
-        best_solution, best_cost = simulated_annealing_shortest_hamilton_cycle(self.graph)
+        best_solution, best_cost = ant_colony_algorithm_with_2opt(self.graph)
         hamilton_cycle_info = f"Shortest Hamilton Cycle (Length: {best_cost}): {best_solution}"
         print(hamilton_cycle_info)
         

@@ -1,10 +1,9 @@
-# Simulated Annealing Algorithm for Shortest Hamilton Cycle
-
-This repository contains an implementation of the simulated annealing algorithm to find the shortest Hamilton cycle in a graph.
+# Ant Colony Optimization with 2-opt Local Search for Finding the Shortest Hamiltonian Cycle
 
 ## Contents
 
 - [Overview](#overview)
+- [Implementation Details](#implementation-details)
 - [Usage](#usage)
 - [File Structure](#file-structure)
 - [Dependencies](#dependencies)
@@ -12,9 +11,18 @@ This repository contains an implementation of the simulated annealing algorithm 
 
 ## Overview
 
-Simulated annealing is a probabilistic optimization technique used to find approximate solutions to optimization problems. In this implementation, the algorithm is applied to find the shortest Hamilton cycle in a given directed graph. A Hamilton cycle is a cycle that visits each vertex exactly once and returns to the starting vertex.
+This project implements the Ant Colony Optimization (ACO) algorithm with 2-opt local search to find the shortest Hamiltonian cycle in a given graph. ACO is a metaheuristic algorithm inspired by the foraging behavior of ants.
 
-The modification introduced in this implementation involves dynamic cooling rates. Instead of using a fixed cooling rate, the cooling rate decreases over time. This change aims to allow for more exploration in the early stages of the algorithm and more exploitation in the later stages.
+In this implementation, the algorithm is applied to find the shortest Hamilton cycle in a given directed graph. A Hamilton cycle is a cycle that visits each vertex exactly once and returns to the starting vertex.
+
+The modification introduced in this implementation involves 2-opt local search. The 2-opt local search is a local optimization method commonly used to improve the solution obtained by constructive algorithms like ACO.
+
+## Implementation Details
+- Graph Representation: The graph is represented using NetworkX, a Python library for the creation, manipulation, and study of complex networks.
+
+- Pheromone Matrix: Pheromone levels are maintained in a matrix, where each entry represents the amount of pheromone on the edge between two nodes.
+
+- Parameter Tuning: The algorithm provides flexibility through parameters such as the number of ants, number of iterations, evaporation rate, and pheromone and heuristic importance factors (alpha and beta).
 
 
 ## Usage
@@ -30,7 +38,7 @@ To use the simulated annealing algorithm:
 
 ## File Structure
 
-- `annealing.py`: Contains the implementation of the simulated annealing algorithm.
+- `annealing.py`: Contains the implementation of the ACO algorithm with 2-opt local search.
 - `GUI.py`: Implements a graphical user interface for visualizing graphs and interacting with the algorithm.
   
 ## Dependencies
